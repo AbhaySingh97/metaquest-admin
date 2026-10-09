@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "MetaQuest Control Hub | Executive Administration",
-  description: "Unified Content Management & Cohort Control System for MetaQuest Solutions",
+  title: "MetaQuest Admin | Workshop Management Panel",
+  description: "Workshop management and website configuration for MetaQuest Solutions",
 };
 
 export default function RootLayout({

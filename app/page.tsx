@@ -203,7 +203,7 @@ export default function AdminDashboard() {
     try {
       const saved = await apiSaveSettings(settings);
       setSettings(saved);
-      notify("success", "Site settings & live cohort timer updated successfully!");
+      notify("success", "Site settings & countdown timer updated successfully!");
     } catch (err: any) {
       notify("error", `Failed to save settings: ${err.message}`);
     } finally {
@@ -256,8 +256,8 @@ export default function AdminDashboard() {
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-500 to-indigo-600 text-white font-black text-xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-cyan-500/25">
               M
             </div>
-            <h1 className="text-2xl font-extrabold text-white tracking-tight">MetaQuest Control Hub</h1>
-            <p className="text-xs text-gray-400 mt-1 font-mono">Dedicated Administrative Dashboard</p>
+            <h1 className="text-2xl font-extrabold text-white tracking-tight">MetaQuest Admin Panel</h1>
+            <p className="text-xs text-gray-400 mt-1 font-mono">Website Management & Workshop Settings</p>
           </div>
 
           {authError && (
@@ -300,7 +300,7 @@ export default function AdminDashboard() {
               type="submit"
               className="w-full py-3 rounded-xl font-bold text-sm text-black bg-white hover:bg-gray-100 transition-all shadow-lg hover:scale-[1.02] active:scale-[0.98] mt-2"
             >
-              Sign In to Control Hub
+              Sign In to Admin Panel
             </button>
           </form>
 
@@ -396,7 +396,7 @@ export default function AdminDashboard() {
         {/* Top Metric Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
           <div className="p-5 rounded-2xl bg-zinc-950/70 border border-white/10 backdrop-blur-md">
-            <span className="text-xs font-mono text-gray-400 uppercase">Active Cohorts</span>
+            <span className="text-xs font-mono text-gray-400 uppercase">Active Workshops</span>
             <div className="text-2xl font-bold font-mono text-white mt-1">
               {workshops.length}
             </div>
@@ -437,7 +437,7 @@ export default function AdminDashboard() {
             }`}
           >
             <BookOpen className="w-4 h-4" />
-            <span>Workshops & Roadmaps ({workshops.length})</span>
+            <span>Workshops & Syllabus ({workshops.length})</span>
           </button>
 
           <button
@@ -449,7 +449,7 @@ export default function AdminDashboard() {
             }`}
           >
             <Clock className="w-4 h-4" />
-            <span>Countdown Timer & Site CMS</span>
+            <span>Countdown & Site Settings</span>
           </button>
 
           <button
@@ -470,9 +470,9 @@ export default function AdminDashboard() {
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <h2 className="text-xl font-bold text-white">Live Workshop Catalog</h2>
+                <h2 className="text-xl font-bold text-white">Workshop Catalog</h2>
                 <p className="text-xs text-gray-400">
-                  Manage masterclasses, modify roadmap modules, or update Google Form registration links.
+                  Manage workshops, update syllabus topics, or configure Google Form registration links.
                 </p>
               </div>
 
@@ -519,7 +519,7 @@ export default function AdminDashboard() {
                     )}
 
                     <div className="text-xs text-gray-400 font-mono mb-4">
-                      Curriculum Roadmap: {w.curriculum?.length || 0} modules configured
+                      Syllabus: {w.curriculum?.length || 0} modules configured
                     </div>
                   </div>
 
@@ -532,7 +532,7 @@ export default function AdminDashboard() {
                       className="px-3.5 py-2 rounded-xl text-xs font-semibold bg-white/10 hover:bg-white/20 text-white flex items-center gap-1.5 transition-colors"
                     >
                       <Edit className="w-3.5 h-3.5 text-cyan-400" />
-                      <span>Edit & Curriculum</span>
+                      <span>Edit & Syllabus</span>
                     </button>
 
                     <button
@@ -554,9 +554,9 @@ export default function AdminDashboard() {
           <form onSubmit={handleSaveSettings} className="space-y-6">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-xl font-bold text-white">Live Countdown Timer & Site Settings</h2>
+                <h2 className="text-xl font-bold text-white">Workshop Countdown Timer & Settings</h2>
                 <p className="text-xs text-gray-400">
-                  Update the live cohort target countdown timestamp, announcement bar, and headline copy.
+                  Update the next workshop date & time, announcement bar, and headline copy.
                 </p>
               </div>
 
@@ -573,10 +573,10 @@ export default function AdminDashboard() {
             <div className="p-6 rounded-3xl bg-zinc-950/70 border border-cyan-500/30 backdrop-blur-md space-y-4">
               <div className="flex items-center gap-2">
                 <Clock className="w-5 h-5 text-cyan-400" />
-                <h3 className="text-base font-bold text-white">Next Live Cohort Target Timestamp</h3>
+                <h3 className="text-base font-bold text-white">Next Workshop Date & Time</h3>
               </div>
               <p className="text-xs text-gray-300">
-                This exact ISO timestamp drives the countdown clock on the public website. Enter your cohort scheduled start date and time.
+                This exact ISO timestamp drives the countdown clock on the website. Enter the scheduled date and time of the next workshop.
               </p>
 
               <div>
@@ -662,7 +662,7 @@ export default function AdminDashboard() {
               <div>
                 <h2 className="text-xl font-bold text-white">Registered Students</h2>
                 <p className="text-xs text-gray-400">
-                  Live cohort participant records and Google Form attendee receipts.
+                  Participant registrations and Google Form attendee list.
                 </p>
               </div>
 
